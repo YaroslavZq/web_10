@@ -1,0 +1,31 @@
+{% extends "quote_app/base.html" %}
+
+{% block content %}
+<h1 style="text-align:center;">Add tag</h1>
+{% csrf_token %}
+<div class="container">
+    <div class="row justify-content-center">
+        <form method="post" action="{% url 'quote_app:add_tag' %}">
+            {% csrf_token %}
+            <div class="form-row mt-3">
+                <div class="mb-3">
+                    <label for="tag_name" class="form-label">Enter tag name:</label>
+
+                    <input type="text" id="tag_name" name="name" class="form-control" placeholder="Tag name">
+
+                    <span>{{ form.errors.name }}</span>
+                </div>
+
+            </div>
+
+            <div class="form-group mt-4 mb-1 ">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</form>
+
+{% endblock %}

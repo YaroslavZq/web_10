@@ -1,0 +1,58 @@
+{% extends "quote_app/base.html" %}
+
+{% block content %}
+<h1 style="text-align:center;">Add author</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="mb-3">
+                    <label for="author_fullname" class="form-label"></label>
+                    <input type="text" id="author_fullname" name="fullname" class="form-control" placeholder="Author fullname">
+                    <span>{{ form.errors.name }}</span>
+                </div>
+                <div class="mb-3">
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Username</label>
+                        {{ form.username }}
+                    </div>
+                    <span>{{ form.errors.username }}</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        {{ form.email}}
+                    </div>
+                    <span>{{ form.errors.email }}</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Password</label>
+                        {{ form.password1 }}
+                    </div>
+                    <span>{{ form.errors.password1 }}</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Confirm password</label>
+                        {{ form.password2 }}
+                    </div>
+                    <span>{{ form.errors.password2 }}</span>
+                </div>
+            </div>
+            <div class="form-group mt-4 mb-1">
+                <button type="submit" class="btn btn-success">Sign up</button>
+                <button type="reset" class="secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

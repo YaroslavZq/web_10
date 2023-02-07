@@ -1,0 +1,18 @@
+{% extends "quote_app/base.html" %}
+{% load extract_tags %}
+{% block content %}
+<h1 style="text-align:center;">Main page</h1>
+{% for quote in quotes %}
+<ul>
+    <li>
+        <h3>{{ quote.text }}</h3>
+        <p>Author: {{ quote.author }}</p>
+        <a href="{% url 'quote_app:detail' quote.author.id %}" role="button" class="contrast">about author</a>
+
+        <p>Tags: <small> {{ quote.tags|tags }} </small></p>
+
+        <a href="{% url 'quote_app:delete' quote.id %}" role="button" class="contrast"> Delete quote </a>
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}
